@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# TypeScript
+node_modules/
+dist/
+*.js
+*.js.map
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Build files
+build/
+
+# Dependency directories
+bower_components/
+
+# Misc
+*.bak
+*.tmp
+*.temp
+
+
+# Private keys
+keys/

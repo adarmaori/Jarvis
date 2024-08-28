@@ -1,0 +1,22 @@
+[{
+    "type": "function",
+    "function": {
+        "name": "create_file",
+        "description": "Create a file at the given path with the given content",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "The path to create the file at, relative to the current working directory"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content to write to the file, if not provided, the file will be created empty"
+                }
+            },
+            "required": ["path"],
+            "additionalProperties": false
+        }
+    }
+}]

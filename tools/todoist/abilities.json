@@ -1,0 +1,58 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "add_task",
+            "description": "Add a task to the given project",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "task": {
+                        "type": "string",
+                        "description": "The title of the task to add. In your own words, in Hebrew."
+                    },
+                    "project": {
+                        "type": "string",
+                        "description": "The name of the project to add the task to. If left empty, the task will be added to the user's inbox."
+                    },
+                    "due_date": {
+                        "type": "string",
+                        "description": "The due date of the task in free text format. If left empty, the task will be added without a due date."
+                    }
+                },
+                "required": [
+                    "task"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_projects",
+            "description": "Get the list of projects in the user's account",
+            "parameters": {}
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_project_id",
+            "description": "Get the id of the project with the given name",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "project": {
+                        "type": "string",
+                        "description": "The name of the project to get the id of"
+                    }
+                },
+                "required": [
+                    "project"
+                ],
+                "additionalProperties": false
+            }
+        }
+    }
+]
