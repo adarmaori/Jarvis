@@ -80,6 +80,3 @@ index = {
     "get_tasks_project": get_tasks_project,
     "get_all_tasks": get_all_tasks,
 }
-
-
-print(Due(string="2024-08-01", is_recurring=False, date=None).to_dict())
