@@ -1,0 +1,22 @@
+{
+    "type": "function",
+    "function": {
+        "name": "create_file",
+        "description": "Create a file in the given directory",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "parent_dir": {
+                    "type": "string",
+                    "description": "The directory to create the file in"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The name of the file to create"
+                }
+            },
+            "required": ["parent_dir", "filename"],
+            "additionalProperties": false
+        }
+    }
+}
