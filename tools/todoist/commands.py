@@ -2,15 +2,14 @@ from pprint import pprint
 from todoist_api_python.api import TodoistAPI
 from todoist_api_python.models import Due
 
-
 with open("keys/todoist_api.key", "r") as f:
-    key = f.read().strip()
+    todoist_key = f.read().strip()
 
-api = TodoistAPI(key) 
+todoist_api = TodoistAPI(todoist_key) 
 
 def get_projects() -> list:
     try:
-        projects = api.get_projects()
+        projects = todoist_api.get_projects()
         return [project.__dict__ for project in projects]
     except Exception as error:
         print(error)
@@ -38,7 +37,7 @@ def add_task(
     try:
         project_id = get_project_id(project)
         due = due_date if due_date else ""
-        res = api.add_task(
+        res = todoist_api.add_task(
             content=task, 
             project_id=project_id, 
             due_string=due, 
@@ -50,10 +49,10 @@ def add_task(
         return "Failed to create task"
 
 
-def get_tasks_project(project: str = 'Inbox') -> list:
+def get_tasks_for_project(project: str = 'Inbox') -> list:
     try:
         project_id = get_project_id(project)
-        tasks = api.get_tasks(project_id)
+        tasks = todoist_api.get_tasks(project_id)
         return [task.__dict__ for task in tasks]
     except Exception as error:
         print(error)
@@ -62,7 +61,7 @@ def get_tasks_project(project: str = 'Inbox') -> list:
 
 def get_all_tasks() -> list:
     try:
-        tasks = api.get_tasks()
+        tasks = todoist_api.get_tasks()
         return [task.__dict__ for task in tasks]
     except Exception as error:
         print(error)
@@ -70,13 +69,13 @@ def get_all_tasks() -> list:
 
 
 def get_tasks_by_due_date(due_date: str) -> list:
-    tasks = get_all_tasks()
-    return [task for task in tasks if task.due_date == due_date]
+    raise NotImplementedError("Not implemented yet") # TODO: implement
 
 
 index = {
     "add_task": add_task,
     "get_projects": get_projects,
-    "get_tasks_project": get_tasks_project,
+    "get_tasks_for_project": get_tasks_for_project,
     "get_all_tasks": get_all_tasks,
+    "get_tasks_by_due_date": get_tasks_by_due_date,
 }

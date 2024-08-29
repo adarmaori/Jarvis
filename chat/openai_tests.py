@@ -10,10 +10,10 @@ import warnings
 from transcriber import Transcriber
 import os
 # from tools_temp import tools as tools_temp
-from tools.todoist import abilities as todoist_abilities
+from tools.todoist import commands as todoist_commands
 
 tools_temp = { # TODO: make this external and more complete
-    **todoist_abilities.index,
+    **todoist_commands.index,
 }
 
 warnings.filterwarnings("ignore")  # Like a boss
@@ -47,7 +47,7 @@ def get_gpt4_response(messages, tools) -> tuple[str | None, list[dict] | None]:
 # Main function to run the voice-chat terminal application
 def main():
     # Load tools from JSON file in the same directory as the script
-    with open(os.path.join(script_dir, "../tools/todoist/abilities.json"), "r") as f:
+    with open(os.path.join(script_dir, "../tools/todoist/commands.json"), "r") as f:
         tools = json.load(f)
     
     conversation = [
